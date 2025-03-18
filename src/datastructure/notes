@@ -1,0 +1,23 @@
+if(!currNode.isEnd())
+        {
+            System.out.println(currNode.getQuestion().getText());
+            String userInput = input.next();
+            input.nextLine();
+
+            if (userInput.equals("go back") || userInput.equals("Go back")) {
+                backTrack();
+
+            } else if (userInput.equals("yes") || userInput.equals("Yes")) {
+                currNode = currNode.getYes();
+                stack.push(currNode);
+
+            } else if (userInput.equals("no") || userInput.equals("No")) {
+                currNode = currNode.getNo();
+                stack.push(currNode);
+
+            }
+        }else {
+            enrichTree();
+            resetCurrentPosition();
+            clearStack();
+        }
